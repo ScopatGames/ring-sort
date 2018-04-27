@@ -1,0 +1,11 @@
+{
+  "name": "ringsort",
+  "version": "1.0.0",
+  "description": "sorts planar 3d vertices in clockwise or counterclockwise direction ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Patten",
+  "license": "ISC"
+}
