@@ -1,8 +1,10 @@
-let Point = require('./point');
+const Point = require('./point');
+const cross = require('./cross');
+const dot = require('./dot');
 
-let getCenterPoint = function (pointsArray){
+const getCenterPoint = function (pointsArray){
 
-  let length = pointsArray.length;
+  const length = pointsArray.length;
 
   return pointsArray.reduce(
     (accumulator, currentValue) => accumulator.plus(currentValue) 
@@ -10,10 +12,17 @@ let getCenterPoint = function (pointsArray){
 
 }
 
+
 module.exports = function (pointsArray, direction){
-  let centerPoint = getCenterPoint(pointsArray);
+  const centerPoint = getCenterPoint(pointsArray);
 
-  return centerPoint;
+  const sign = direction ? 1 : -1;
 
+  const normal = cross(pointsArray[0], pointsArray[1]).multiplyByScalar(sign);
 
+  const testOrder = function ( a, b ){
+    return dot(normal, cross(a.minus(centerPoint), b.minus(centerPoint)));
+  }
+
+  return pointsArray.sort(testOrder);
 }

@@ -1,4 +1,4 @@
-let Point = require('./point');
+const Point = require('./point');
 
 module.exports = function (a, b) {
   return new Point(
